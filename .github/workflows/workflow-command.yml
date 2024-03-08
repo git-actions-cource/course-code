@@ -1,0 +1,11 @@
+name: Workflow command
+
+on: [ push ]
+
+jobs:
+  testing-Workflow-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set error message
+        run: echo "::error::Error string"
+          
