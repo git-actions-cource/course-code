@@ -16,3 +16,12 @@ jobs:
         run: echo "::warning title:warning title,file=app.js,line=30,col=85::Warning string"
       - name: Set a notice message with params
         run: echo "::notice title:Notice title,file=app.js,line=2,endLine=3,col=5::notice string set from command"
+      - name: Group message
+        run: |
+         echo "::group::My group"
+         echo "Inside group"
+         echo "::endgroup"
+      - name: Masking
+        run: echo "::add-mask::Secret string"
+      - name: Echo a secret
+        run: echo "Secret string"
