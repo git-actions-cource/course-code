@@ -2,6 +2,11 @@ name: Working directory and shell
 
 on: [push]
 
+defaults:
+  run:
+    shell: bash
+    # working-directory: /proper/path
+
 jobs:
   display-wd-info-ubuntu:
     runs-on: ubuntu-latest
@@ -13,13 +18,27 @@ jobs:
          echo $GITHUB_SHA
          echo $GITHUB_REPOSITORY
          echo $GITHUB_WORKSPACE
+      - name: Change working directory
+        working-directory: /home/runnder
+        run: |
+          pwd
   display-wd-info-windows:
      runs-on: windows-latest
+
+     defaults:
+       run:
+        shell: pwsh
+
      steps:
-       - name: Disaplay working directory & list files
-         run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
+      - name: Disaplay working directory & list files
+        run: |
+          Get-Location
+          dir
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE
+      - name: To use python shell
+        shell: python
+        run: |
+          import platform
+          print(platform,processor())
