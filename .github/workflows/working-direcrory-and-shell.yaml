@@ -3,9 +3,23 @@ name: Working directory and shell
 on: [push]
 
 jobs:
-  Working-dir-and-shell:
+  display-wd-info-ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo working directory
+      - name: Disaplay working directory & list files
         run: |
-         echo pwd
+         pwd
+         ls -a
+         echo $GITHUB_SHA
+         echo $GITHUB_REPOSITORY
+         echo $GITHUB_WORKSPACE
+  display-wd-info-windows:
+     runs-on: windows-latest
+     steps:
+       - name: Disaplay working directory & list files
+         run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
