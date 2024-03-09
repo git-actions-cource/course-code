@@ -1,0 +1,11 @@
+name: Working directory and shell
+
+on: [push]
+
+jobs:
+  Working-dir-and-shell:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo working directory
+        run: |
+         echo pwd
