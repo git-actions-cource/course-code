@@ -7,5 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set error message
-        run: echo "::error::Error string"
-          
+        run: echo "::error::Error string set from command"
+      - name: Set error message with params
+        run: echo "::error title:Error title,file=app.js,line=2,endLine=3,col=5::Error string set from command"
+      - name: Set a debug message with params
+        run: echo "::debug title:debug title,file=app.js,line=2,endLine=3,col=5::Debug string set from command"
+      - name: Set Workflow warning messages with param
+        run: echo "::warning title:warning title,file=app.js,line=30,col=85::Warning string"
+      - name: Set a notice message with params
+        run: echo "::notice title:Notice title,file=app.js,line=2,endLine=3,col=5::notice string set from command"
