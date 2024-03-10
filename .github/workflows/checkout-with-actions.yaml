@@ -1,0 +1,15 @@
+name: Checkout with action
+
+on: [push]
+
+jobs:
+  Checkout-with-action:
+    runs-on: ubuntu-lates
+    steps:
+      - name: Simple js action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with: 
+          who-to-greet: NM 
+      - name: Log greeting time
+        run: echo "${{ steps.greet.outputs.time }}"
