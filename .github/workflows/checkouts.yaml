@@ -1,8 +1,18 @@
-name: checkout repository to runnder
+name: checkout repository to runner
 
 on: [push]
 
 jobs:
+    checkout-actions:
+      runs-on: ubunutu-latest
+      steps:
+        - name: Files before
+          run: ls -a
+        - name: Checkout using action
+          uses: actions/checkoutv4
+        - name: files after
+          run: ls -a
+
     checkout-repo-and-display:
         runs-on: ubuntu-latest
         steps:
