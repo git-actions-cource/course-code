@@ -6,6 +6,8 @@ on:
             - main
         paths-ignore:
             - ".github/workflows/actions.yml"
+            - ".github/workflows/checkout-with-actions.yaml"
+            - ".github/workflows/checkout.yaml"
 jobs:
     Deploy-to-surge:
         runs-on: ubuntu-latest
@@ -16,3 +18,10 @@ jobs:
                 git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
                 git fetch origin
                 git checkout main
+            - name: Deploy to surge M
+              uses: dswistowski/surge-sh-action@v1
+              with:
+                  domain: 'mosaic-nm-test-gh.surge.sh'
+                  project: './src'
+                  login: ${{ secrets.SRG_NAME }}
+                  token: ${{ secrets.SRG_TOKEN }}
