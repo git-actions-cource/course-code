@@ -8,7 +8,8 @@ jobs:
       steps:
         - name: Files before
           run: ls -a
-        - uses: actions/checkout@v4
+        - name: Checkout repo
+          uses: actions/checkout@v4
         - name: files after
           run: ls -a
 
