@@ -9,7 +9,7 @@ jobs:
         - name: Files before
           run: ls -a
         - name: Checkout using action
-          uses: actions/checkoutv4
+          uses: action/checkoutv4
         - name: files after
           run: ls -a
 
