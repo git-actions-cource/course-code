@@ -1,0 +1,14 @@
+name: workflow-run-on-complition-of-another.yml
+
+on: 
+  workflow_run:
+    workflows: [Repository Events 2]
+    types: [completed]
+
+jobs:
+    Repo-events:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                echo "Triggered from complition of workflow 'Repository Events 2'"
+             
