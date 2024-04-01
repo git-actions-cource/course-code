@@ -15,7 +15,7 @@ jobs:
               run: |
                 echo $GITHUB_SHA
                 echo $GITHUB_REF
-                echo github.event.pull_request
-                echo github.event.issues
+                echo $github.event.pull_request
+                echo $github.event.issues
             - uses: actions/checkout@v3
              
