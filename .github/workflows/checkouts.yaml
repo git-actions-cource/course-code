@@ -27,6 +27,8 @@ jobs:
             - name: List files After
               run: ls -a
             - name: Add a file in src
-              run: cd src && touch newfile.txt
+              run: |
+                cd src && touch touch .nojekyll
+                ls -a
             - name: List files After adding touch
               run: ls -a
